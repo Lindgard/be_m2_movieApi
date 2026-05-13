@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApi", "TaskApi\TaskApi.csproj", "{92E7EEE2-2909-28DC-25DD-33558F5B8EE8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieService.Api", "MovieService.Api\MovieService.Api.csproj", "{D71C21B0-FC15-4447-8CF4-97A8184EEB17}"
 EndProject
 Global
