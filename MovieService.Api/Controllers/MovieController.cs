@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MovieService.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Microsoft.AspNetCore.Components.Route("api/[controller]")]
 public class MovieController : ControllerBase
 {
     [HttpGet]
