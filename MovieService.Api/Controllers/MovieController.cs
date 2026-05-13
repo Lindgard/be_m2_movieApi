@@ -1,10 +1,9 @@
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
-
+using MovieService.Api.Models;
 namespace MovieService.Api.Controllers;
 
 [ApiController]
-[Microsoft.AspNetCore.Components.Route("api/[controller]")]
+[Route("api/[controller]")]
 public class MovieController : ControllerBase
 {
     [HttpGet("movies")]
@@ -18,13 +17,13 @@ public class MovieController : ControllerBase
             "Pulp Fiction",
             "The Lord of the Rings: The Return of the King"
         };
-        return Ok(movies);
+        return Ok(new ApiResponse<List<string>> { Data = movies, StatusCode = 200 });
     }
 
     [HttpPost("addMovies")]
     public IActionResult AddMovie(string title)
     {
         var movie = new { Id = 1, Title = title };
-        return Ok(movie);
+        return Ok(new ApiResponse<object> { Data = movie, StatusCode = 200 });
     }
 }
