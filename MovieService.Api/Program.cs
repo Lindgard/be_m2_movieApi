@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MovieDbContext>(options => options.UseNpgsql("MovieDb"));
+builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<MovieService.Api.Services.MovieService>();
 
 var app = builder.Build();
 
@@ -15,6 +17,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
