@@ -3,11 +3,11 @@ using MovieService.Api.Models;
 
 namespace MovieService.Api.Services;
 
-public class MovieService
+public class MovieServiceFile
 {
     private readonly MovieDbContext _dbContext;
 
-    public MovieService(MovieDbContext dbContext)
+    public MovieServiceFile(MovieDbContext dbContext)
     {
         _dbContext = dbContext;
     }
