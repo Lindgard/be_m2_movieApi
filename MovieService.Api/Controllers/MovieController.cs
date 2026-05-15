@@ -48,6 +48,21 @@ public class MovieController : ControllerBase
     }
 
     /// <summary>
+    /// Updates the title of an existing movie in the database. This endpoint allows clients to update the title of a movie by providing its unique identifier (ID) and the new title. 
+    /// The client must send a PUT request with the movie ID and the new title as parameters. 
+    /// If the movie is updated successfully, the endpoint will return the details of the updated movie along with a success status code. 
+    /// If the movie with the specified ID does not exist, an appropriate error message will be returned.
+    /// </summary>
+    /// <param name="id">The ID of the movie to be updated.</param>
+    /// <param name="title">The new title of the movie.</param>
+    /// <returns>An ApiResponse containing the details of the updated movie.</returns>
+    [HttpPut("updateMovie")]
+    public IActionResult UpdateMovie(int id, string title)
+    {
+        var movie = _movieService.UpdateMovie(id, title);
+        return Ok(new ApiResponse<object> { Data = movie, StatusCode = 200 });
+    }
+    /// <summary>
     /// Deletes a movie from the database. This endpoint allows clients to delete a movie by providing its unique identifier (ID). 
     /// The client must send a DELETE request with the movie ID as a parameter. 
     /// If the movie is deleted successfully, the endpoint will return a success message along with a success status code. 
@@ -58,7 +73,7 @@ public class MovieController : ControllerBase
     [HttpDelete("deleteMovie")]
     public IActionResult DeleteMovie(int id)
     {
-        var result = _movieService.DeleteMovie(id);
-        return Ok(new ApiResponse<string> { Data = result, StatusCode = 200 });
+        var deletedMovie = _movieService.DeleteMovie(id);
+        return Ok(new ApiResponse<string> { Data = deletedMovie, StatusCode = 200 });
     }
 }

@@ -9,7 +9,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MovieDbContext>(options => options.UseNpgsql("MovieDb"));
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<MovieService.Api.Services.MovieService>();
+builder.Services.AddScoped<MovieService.Api.Services.MovieServiceFile>();
 
 var app = builder.Build();
 
