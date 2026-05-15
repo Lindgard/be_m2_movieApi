@@ -24,3 +24,48 @@ The goal of this project is to provide CRUD operations for movies stored in a Po
 ## Project Status
 
 This project is currently in development as an MVP.
+
+## Getting Started
+
+### Prerequisites
+
+- .NET 6 or later
+- PostgreSQL installed and running
+
+### Setup
+
+1. Configure your database connection in `appsettings.json`:
+
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "Host=localhost;Port=5432;Database=movies;Username=postgres;Password=yourpassword"
+   }
+   ```
+
+2. Apply database migrations:
+
+   ```bash
+   dotnet ef database update
+   ```
+
+3. Run the API:
+
+   ```bash
+   dotnet run
+   ```
+
+The API will start on `https://localhost:5001` (or the configured port).
+
+### Testing
+
+Once running, test the API endpoints using:
+
+- **Swagger UI**: `https://localhost:5001/swagger` (if Swagger is configured)
+- **Postman**: Import and test the endpoints manually
+- **curl**: Use command-line requests
+
+Example:
+
+```bash
+curl https://localhost:5001/api/movies
+```
