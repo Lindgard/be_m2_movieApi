@@ -36,7 +36,8 @@ public class MovieServiceFile
     /// <returns>The newly added movie object.</returns>
     public Movie AddMovie(string title)
     {
-        var movie = new Movie { Title = title };
+        var Id = _dbContext.Set<Movie>().Count() + 1;
+        var movie = new Movie { Id = Id, Title = title };
         _dbContext.Set<Movie>().Add(movie);
         _dbContext.SaveChanges();
         return movie;
